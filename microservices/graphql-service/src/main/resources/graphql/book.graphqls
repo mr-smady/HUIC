@@ -1,0 +1,10 @@
+type Book{
+    id : Int
+    title: String
+    author: Author
+}
+
+input BookInput{
+    title: String
+    authorId: Int
+}

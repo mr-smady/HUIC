@@ -1,0 +1,9 @@
+type Query {
+    sayHi : String
+    books: [Book]
+}
+
+type Mutation {
+    createBook(book: BookInput) : Book
+    createAuthor(author: AuthorInput) : Author
+}
