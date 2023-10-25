@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="~{fragments/general.html :: html-header}">
+    </th:block>
+    <title>Students</title>
+</head>
+<body>
+<div th:replace="~{fragments/general.html :: nav}"></div>
+<div class="container">
+    <h3>Students</h3>
+    <a th:href="@{/students/create}" class="btn btn-primary">
+        <i class="glyphicon glyphicon-plus"></i> Create</a>
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student: ${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.age}"></td>
+            <td><a th:href="@{/students/edit/{id}(id = ${student.id})}"><i class="glyphicon glyphicon-edit"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="~{fragments/general.html :: footer}"></div>
+</body>
+</html>

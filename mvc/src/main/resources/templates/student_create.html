@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="~{fragments/general.html :: html-header}">
+    </th:block>
+    <title>Create Student</title>
+</head>
+<body>
+<div th:replace="~{fragments/general.html :: nav}"></div>
+<div class="container">
+    <h3>Create Student</h3>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-4">
+            <form th:object="${student}" method="post" th:action="@{/students/create}">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" id="age" th:field="*{age}">
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+
+</div>
+<div th:replace="~{fragments/general.html :: footer}"></div>
+</body>
+</html>
